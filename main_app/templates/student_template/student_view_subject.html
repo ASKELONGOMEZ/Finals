@@ -1,0 +1,48 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-dark">
+                    <div class="card-header">
+                        <h3 class="card-title"></h3>
+                    </div>
+
+
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <div class="card-body">
+
+
+
+
+
+
+                        <div class="form-group table">
+              <table class="table table-bordered">
+                  <tr>
+                      {% url 'student_view_lesson' as student_view_lesson %}
+                      <th><a href="{{student_view_lesson}}">Show Lessons</a></th>
+
+                      {% url 'student_view_grade' as student_view_grade %}
+                      <th><a href="{{student_view_grade}}" >Show Grades</a></th>
+                  </tr>
+
+              </table>
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+
+                <!-- /.card -->
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

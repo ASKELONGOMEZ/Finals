@@ -1,0 +1,51 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">{{page_title}}</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example2" class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Subject</th>
+                                    <th></th>
+                                    <th>Professor</th>
+                                    <th>Course</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for subject in subjects %}
+                                <a>
+                                {% url 'student_view_subject' as student_view_subject %}
+
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{subject.name}}</td>
+                                    <td>
+                                        {% url 'student_view_subject' as student_view_subject%}
+                                        <a class="btn btn-info", href="{{student_view_subject}}"> View </a>
+                                    </td>
+                                    <td>{{subject.staff.admin}}</td>
+                                    <td>{{subject.course.name}}</td>
+
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
